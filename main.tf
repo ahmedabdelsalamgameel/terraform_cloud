@@ -8,6 +8,8 @@ resource "aws_vpc" "development_vpc" {
   }
 }
 
+
+
 #================= Create subnets ========================#
 resource "aws_subnet" "public_development_1" {
   vpc_id                  = aws_vpc.development_vpc.id
