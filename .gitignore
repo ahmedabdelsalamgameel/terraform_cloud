@@ -1,0 +1,14 @@
+#local terraform
+.terraform.*
+.terraform/*
+
+#tf state file
+*.tfstate
+*.tfstate.*
+
+#tf variable files
+*.tfvars
+
+#graph files////
+*.dot
+graph.dot
