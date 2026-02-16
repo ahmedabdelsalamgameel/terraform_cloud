@@ -91,11 +91,6 @@ data "aws_ami" "latest-amazon-linux-image" {
   }
 }
 
-resource "aws_key_pair" "dev-key" {
-  key_name   = "${var.env_prefix}-key"
-  public_key = file(var.public_key_location)
-
-}
 resource "aws_instance" "dev-server" {
   ami           = data.aws_ami.latest-amazon-linux-image.id
   instance_type = var.instance_type
