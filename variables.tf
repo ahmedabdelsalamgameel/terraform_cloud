@@ -13,7 +13,10 @@ variable "env_prefix" {
 variable "instance_type" {
   type = string
 }
-variable "key_name" {
+variable "access_key" {
+  type = string
+}
+variable "secret_key" {
   type = string
 }
 variable "public_key_location" {
