@@ -105,39 +105,12 @@ resource "aws_instance" "dev-server" {
   vpc_security_group_ids      = [aws_security_group.dev_sg.id]
   availability_zone           = "${var.region}a"
   associate_public_ip_address = true
-  key_name                    = aws_key_pair.dev-key.key_name
   user_data                   = file("entry-script.sh")
 
   tags = {
     Name : "${var.env_prefix}-server"
   }
 
-/*
-  provisioner "file" {
-    source = "entry-script.sh"
-    destination = "/tmp/entry-script.sh"
-
-    connection {
-      host = self.public_ip
-      type = "ssh"
-      user = "ec2-user"
-      private_key = "${file(var.private_key_location)}"
-    }
-  }
-  provisioner "remote-exec" {
-    inline = [ 
-      "sudo chmod +x /tmp/entry-script.sh",
-      "sudo /tmp/entry-script.sh",
-     ]
-
-    connection {
-      host = self.public_ip
-      type = "ssh"
-      user = "ec2-user"
-      private_key = "${file(var.private_key_location)}"
-    }
-  }
-*/
 
 }
 
