@@ -19,9 +19,4 @@ variable "access_key" {
 variable "secret_key" {
   type = string
 }
-variable "public_key_location" {
-  type = string
-}
-variable "private_key_location" {
-  type = string
-}
+
