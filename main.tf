@@ -94,6 +94,7 @@ data "aws_ami" "latest-amazon-linux-image" {
 resource "aws_instance" "dev-server" {
   ami           = data.aws_ami.latest-amazon-linux-image.id
   instance_type = var.instance_type
+  count         = 2
 
 
   subnet_id                   = aws_subnet.public_development_1.id
