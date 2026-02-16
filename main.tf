@@ -111,5 +111,5 @@ resource "aws_instance" "dev-server" {
 }
 
 output "ec2_public_ip" {
-  value = aws_instance.dev-server.public_ip
+  value = aws_instance.dev-server[count.index].public_ip
 }
