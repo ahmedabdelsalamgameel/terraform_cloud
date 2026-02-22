@@ -11,10 +11,15 @@ module "security_group" {
   app_name_in = var.app_name_out
 }
 
+module "iam-policies" {
+  source = "./modules/iam-policies"
+}
 module "ec2" {
-  source            = "./modules/ec2"
+  source            = "./modules/read-only-ec2"
   instance_type_in  = var.instance_type_out
   subnet_id         = module.vpc.subnet_id
   security_group_id = module.security_group.security_group_id
   app_name_in       = var.app_name_out
+  key_name_in = var.key_name_out
+  profile_name = module.iam-policies.ec2_s3_profile
 }

@@ -18,4 +18,6 @@ variable "instance_type_out" {
   type = string
 }
 
-
+variable "key_name_out" {
+  type = string
+}
